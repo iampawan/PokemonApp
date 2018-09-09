@@ -8,7 +8,8 @@ Pokemon App with animations, beautiful UI and network call.
 ### English
 [Build a beautiful Pokemon App](https://youtu.be/yeXJqZCiwTQ)
 
-##Screenshot
+## Screenshots
+
 <img src="ss.png" height="300em" /><img src="ss2.png" height="300em" />
 
 
