@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
+import 'package:flutter_web/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:pokeappen/pokemon.dart';
 import 'package:pokeappen/pokemondetail.dart';
@@ -68,14 +68,18 @@ class HomePageState extends State<HomePage> {
                             tag: poke.img,
                             child: Card(
                               child: Column(
+                                mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: <Widget>[
                                   Container(
-                                    height: 100.0,
-                                    width: 100.0,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.4,
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.2,
                                     decoration: BoxDecoration(
                                         image: DecorationImage(
+                                            fit: BoxFit.cover,
                                             image: NetworkImage(poke.img))),
                                   ),
                                   Text(
