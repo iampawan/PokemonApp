@@ -4,6 +4,7 @@ import 'package:flutter_web/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:pokeappen/pokemon.dart';
 import 'package:pokeappen/pokemondetail.dart';
+import 'package:pokeappen/search.dart';
 
 void main() => runApp(MaterialApp(
       title: "Poke App",
@@ -39,11 +40,31 @@ class HomePageState extends State<HomePage> {
     setState(() {});
   }
 
+  _selectedSearch(Pokemon pokemon) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => PokeDetail(
+                  pokemon: pokemon,
+                )));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Poke App"),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              showSearch(
+                  context: context,
+                  delegate: DataSearch(pokeHub == null ? [] : pokeHub.pokemon,
+                      (pokemon) => _selectedSearch(pokemon)));
+            },
+          )
+        ],
         backgroundColor: Colors.cyan,
       ),
       body: pokeHub == null
